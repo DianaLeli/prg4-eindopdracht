@@ -3,7 +3,6 @@ import { Resources } from "../resources";
 import { Background } from "../background";
 import { Ground } from "../ground";
 import { Player } from "../player";
-import { Coin } from "../coin";
 import { Heart } from "../heart";
 import { Enemy } from "../enemy";
 import { UI } from "../UI";
@@ -29,14 +28,31 @@ export class levelOne extends Scene {
         const player = new Player();
         this.add(player);
 
-        const coin = new Coin();
-        this.add(coin);
+
 
         const heart = new Heart();
         this.add(heart);
 
         const enemy = new Enemy();
         this.add(enemy);
+
+        this.player = player;
+        this.scoreUI = ui;
     }
 
+    onPreUpdate(engine) {
+        if (this.player && this.scoreUI) {
+            this.scoreUI.updateScoreText(this.player.score);
+        }
+    }
+
+    onActivate() {
+        if (this.player) {
+            this.player.reset();
+        }
+
+        if (this.scoreUI && this.player) {
+            this.scoreUI.updateScoreText(this.player.score);
+        }
+    }
 }
