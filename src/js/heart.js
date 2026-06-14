@@ -36,7 +36,6 @@ export class Heart extends Actor {
         this.runAnim.loop = true;
 
         this.graphics.use(this.runAnim);
-
     }
 
     resetPosition(e) {

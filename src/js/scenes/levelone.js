@@ -28,8 +28,6 @@ export class levelOne extends Scene {
         const player = new Player();
         this.add(player);
 
-
-
         const heart = new Heart();
         this.add(heart);
 

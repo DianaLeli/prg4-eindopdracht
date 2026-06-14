@@ -47,6 +47,7 @@ export class Player extends Actor {
             width: 150, height: 14,
             anchor: new Vector(0, 0)
         })
+
         this.addChild(this.healthbar)
     }
 
@@ -68,7 +69,7 @@ export class Player extends Actor {
 
     onCollisionStart(engine, other, side) {
         if (other.owner instanceof Enemy) {
-            this.health -= 100
+            this.health -= 33.5
             this.healthbar.scale = new Vector(this.health / 100, 1)
         }
 

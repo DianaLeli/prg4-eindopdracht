@@ -1,6 +1,5 @@
 import { ImageSource, Sound, Resource, Loader, FontSource } from 'excalibur'
 
-// voeg hier jouw eigen resources toe
 const Resources = {
     Background: new ImageSource('images/background.png'),
     PlayerSheet: new ImageSource('images/cat-spritesheet.png'),

@@ -15,6 +15,7 @@ export class GameOverScene extends Scene {
             textAlign: "center",
             textBaseline: "middle"
         });
+
         this.backgroundColor = Color.Black
         this.add(gameOverLabel);
 
@@ -29,6 +30,7 @@ export class GameOverScene extends Scene {
             textAlign: "center",
             textBaseline: "middle"
         });
+        
         this.backgroundColor = Color.Black
         this.add(menuLabel);
 
