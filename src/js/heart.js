@@ -40,7 +40,7 @@ export class Heart extends Actor {
     }
 
     resetPosition(e) {
-        this.pos = new Vector(1500, 600);
+        this.pos = new Vector(5600, 600);
         this.vel = new Vector(-380, 0);
     }
 

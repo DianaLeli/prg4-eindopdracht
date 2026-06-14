@@ -38,7 +38,13 @@ export class Player extends Actor {
 
         this.graphics.use(this.runAnim);
 
-        this.healthbar = new Actor({ x: -75, y: -55, color: Color.Green, width: 150, height: 14, anchor: new Vector(0, 0) })
+        this.healthbar = new Actor({ 
+            x: -75, 
+            y: -55, 
+            color: Color.Green, 
+            width: 150, height: 14, 
+            anchor: new Vector(0, 0) 
+        })
         this.addChild(this.healthbar)
 
     }
@@ -54,17 +60,17 @@ export class Player extends Actor {
 
     onCollisionStart(engine, other, side) {
         if (other.owner instanceof Enemy) {
-            this.health -= 33.5
+            this.health -= 100
             this.healthbar.scale = new Vector(this.health / 100, 1)
         }
 
         if (this.health <= 0) {
-            this.kill();
+            this.kill()
             this.scene.engine.goToGameOver();
         }
 
         if (other.owner instanceof Heart) {
-            this.health += 3.5
+            this.health += 33.5
             this.healthbar.scale = new Vector(this.health / 100, 1)
         }
 

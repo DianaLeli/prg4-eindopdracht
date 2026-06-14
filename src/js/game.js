@@ -1,5 +1,5 @@
 import '../css/style.css'
-import { Actor, Engine, Vector, DisplayMode, SolverStrategy, Label, Font, FontUnit, Color } from "excalibur"
+import { Actor, Engine, Vector, DisplayMode, SolverStrategy, Label, Font, FontUnit, Color, Timer } from "excalibur"
 import { Resources, ResourceLoader } from './resources.js'
 import { Background } from './background.js'
 import { Ground } from './ground.js'
@@ -9,9 +9,13 @@ import { Enemy } from './enemy.js'
 import { GameOverScene } from "./scenes/GameOverScene.js";
 import { UI } from "./UI.js";
 import { Heart } from './heart.js'
+import { StartScene } from './scenes/startscene.js'
+import { levelOne } from './scenes/levelone.js'
 
 export class Game extends Engine {
-    ui
+
+    score
+    mylabel
 
     constructor() {
         super({
@@ -32,40 +36,17 @@ export class Game extends Engine {
         this.gameOverScene = new GameOverScene();
         this.addScene("gameover", this.gameOverScene);
 
-        const bgWidth = Resources.Background.width;
+        this.addScene("start", new StartScene());
+        this.addScene("levelone", new levelOne());
 
-        this.add(new Background(0));
-        this.add(new Background(bgWidth));
-
-        const groundWidth = Resources.Ground.width;
-
-        this.add(new Ground(0));
-        this.add(new Ground(groundWidth));
-
-        this.ui = new UI();
-        this.add(this.ui);
-
-        const player = new Player();
-        this.add(player);
-
-        for (let i = 0; i < 10; i++) {
-            const coin = new Coin();
-            this.add(coin);
-        }
-
-        for (let i = 0; i < 10; i++) {
-            const heart = new Heart();
-            this.add(heart);
-        }
-
-        const enemy = new Enemy();
-        this.add(enemy);
-        
-    }
+        this.goToScene("start");
+    } 
 
     goToGameOver() {
         this.goToScene("gameover");
     }
+
+    
 }
 
 new Game()

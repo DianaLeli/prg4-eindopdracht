@@ -40,7 +40,7 @@ export class Enemy extends Actor {
     }
 
     resetPosition(e) {
-        this.pos = new Vector(1400, 600);
+        this.pos = new Vector(2800, 600);
         this.vel = new Vector(-400, 0);
     }
 }   

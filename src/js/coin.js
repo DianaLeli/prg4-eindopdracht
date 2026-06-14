@@ -15,7 +15,7 @@ export class Coin extends Actor {
         this.sprite = Resources.Coin.toSprite();
         this.graphics.use(this.sprite);
 
-        this.pos = new Vector();
+        this.pos = new Vector(0, 0);
         this.vel = new Vector(Math.random() * -150 - 50, 0);
 
         this.on("exitviewport", (e) => this.resetPosition(e));
@@ -43,6 +43,7 @@ export class Coin extends Actor {
         this.pos = new Vector(1300, 600);
         this.vel = new Vector(-380, 0);
     }
+    
 
     onCollisionStart(engine, other) {
         if (other.owner instanceof Player) {
